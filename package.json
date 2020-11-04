@@ -1,0 +1,24 @@
+{
+  "name": "nodetrade",
+  "version": "1.0.0",
+  "description": "hello 1",
+  "main": "client.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lvze1992/nodeTrade.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lvze1992/nodeTrade/issues"
+  },
+  "homepage": "https://github.com/lvze1992/nodeTrade#readme",
+  "dependencies": {
+    "socket.io": "^2.3.0",
+    "socket.io-client": "^2.3.1"
+  }
+}
