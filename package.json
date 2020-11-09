@@ -18,7 +18,13 @@
   },
   "homepage": "https://github.com/lvze1992/nodeTrade#readme",
   "dependencies": {
+    "@stomp/stompjs": "^6.0.0",
+    "qs": "^6.9.4",
     "socket.io": "^2.3.0",
-    "socket.io-client": "^2.3.1"
-  }
+    "socket.io-client": "^2.3.1",
+    "text-encoding": "^0.7.0",
+    "ttab": "^0.7.0",
+    "ws": "^7.4.0"
+  },
+  "devDependencies": {}
 }
