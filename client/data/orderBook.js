@@ -14,8 +14,12 @@ const store = {};
 // };
 socket.on("orderBook", data => {
   const { from, to, forWhat } = data;
-  socket.emit("news", { action: `orderBook=>${from}:response` });
-  console.log("orderBook_get", data);
+  const reg = /\((.*?)\)$/;
+  const [, symbolId] = reg.exec(forWhat);
+  socket.emit("news", {
+    action: `orderBook=>${from}:response`,
+    result: store[symbolId]
+  });
   // socket.emit("news", "orderBook_post" + Date.now());
 });
 function getOrderBook({ symbolId }) {
@@ -26,14 +30,14 @@ function getOrderBook({ symbolId }) {
       path: `/orderBook?${path}`,
       callBack: data => {
         data.originType = "ws";
-        store[path] = data;
+        store[symbolId] = data;
         consoleOrderBook();
       }
     }
   ]);
 }
 function consoleOrderBook() {
-  console.clear();
+  // console.clear();
   Object.keys(store).map(i => {
     const data = store[i];
     const { bids, asks, symbol, timestamp } = data;
@@ -42,7 +46,7 @@ function consoleOrderBook() {
     const orderBook = asks5
       .concat([[symbol, Util.formatTime(+timestamp)]])
       .concat(bids5);
-    console.table(orderBook);
+    // console.table(orderBook);
   });
 }
 

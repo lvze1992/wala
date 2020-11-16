@@ -1,5 +1,6 @@
 const io = require("socket.io")(3000);
 let arr = [];
+console.log("io", io);
 io.on("connection", socket => {
   arr.push(socket);
   socket.on("news", data => {
